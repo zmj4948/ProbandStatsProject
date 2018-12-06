@@ -193,3 +193,27 @@ def quad_step_three():
     print("Analzying coeffiences but with a Quadratic")
     pritn("Testing Function 2x^2+4x-7")
     analyze_coef_quad(get_func_coef(lambda x:2*x**2+4*x-7))
+
+def calc_var_for_step_four():
+    coef=find_coef_linear(give_y_values)
+    covar=np.cov(coef,rowvar=0)
+    var1=np.std(coef[0])**2
+    var2=np.std(coef[1])**2
+    variance_f=2*given_x_values*covar
+    return variance_f
+
+def get_some_y_bois(func):
+    y=func(given_x_values)
+    return y
+
+def calc_var_a_shit_ton():
+    many_bois=[]
+    for _ in range(0,1000):
+        error=generate_some_error_bois(lambda x:2+10*x-2*x**2)
+        recovery=find_coef_linear(error)
+        many_bois.append(recovery)
+    covar=np.cov(many_bois,rowvar=0)[0][1]
+    print("cov= "+str(covar))
+    var=2*given_x_values*covar
+    return var
+
